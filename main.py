@@ -95,19 +95,14 @@ def main():
         sample_start = time.localtime()
 
         if samples.shape[1] >= (sample_duration*sampling_rate):
+
             if DEBUG: print("\n\nIteration: {}\n\n".format(i))
             if DEBUG: print("Sample: {}\n".format(samples.shape))
-            epoch = Epoch(samples, event=None)
-            epoch.fit()
-            EEG_cleaned = epoch.numpy_array
 
-            if DEBUG: print(EEG_cleaned)
-            buffer_prep.append(EEG_cleaned)
+            x_test, y_pred = ClassifierEEG.fitted_classifier(EEG_cleaned, classifier_name, directory)
+            buffer_pred.append(y_pred)
 
             buffer_time.append(sample_start-time.localtime())
-
-            #x_test, y_pred = ClassifierEEG.fitted_classifier(EEG_cleaned, classifier_name, directory)
-            #buffer_pred.append(y_pred)
 
             i += 1
 
@@ -116,7 +111,7 @@ def main():
             d=time.mktime(e)-time.mktime(s)
             current_time = time.strftime("%H:%M:%S", e)
             print("\n\n\nEnding Time: {} \nTotal Time: {} sec ({} min)".format(current_time, d, d/60))
-            
+
             buffer_time.append(sum(buffer_time)/len(buffer_time))
             with open('EEG-Time-Report.csv', 'w') as file:
                 for x in buffer_time:

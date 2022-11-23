@@ -81,7 +81,7 @@ def dac():
 
     if PROCESS == "ADC-DAC":
         header = "F3 FC5 AF3 F7 T7 P7 O1 O2 P8 T8 F8 AF4 FC6 F4".split()
-        test = pd.read_csv("/Users/MohamedBenomar/Desktop/ETSETB/MEE/2B/TFM/RasPi-Files/RAW_REC/s1_s1.csv")
+        test = pd.read_csv("./s1_s1.csv")
         test = test[header].iloc[0:(sampling_rate*test_duration)].values.tolist()
         for x in test:
             for y in x:

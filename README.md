@@ -12,9 +12,18 @@ Library for EEG Biometrics project for HERO Lab - UC Irvine
 - `librosa` >= 0.9.1
 - `sklearn` >= 1.0.2
 - `scikit-learn` >= 0.20.1
-- `matplotlib` >= 2.2.3
 - `pandas` >=  1.4.1
 - `numpy` >= 1.22.0
+
+```
+sudo -H pip3 install sklearn
+sudo -H pip3 install scikit-learn
+sudo -H pip3 install pandas
+sudo -H pip3 install numpy
+sudo -H pip3 install --upgrade adafruit-python-shell
+wget https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/raspi-blinka.py
+sudo python3 raspi-blinka.py
+```
 
 ## Install tensorflow in Raspberry Pi
 
@@ -46,18 +55,11 @@ sudo -H pip3 install tensorflow-2.1.0-cp37-cp37m-linux_armv7l.whl
 sudo reboot
 ```
 
-## Install sklearn in Raspberry Pi
-
-```
-pip install -U scikit-learn
-```
-
 ## Install MNE in Raspberry Pi
 
 ```
 pip install mne
 ```
-
 
 # Packages
 

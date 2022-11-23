@@ -3,6 +3,7 @@ Library for EEG Biometrics project for HERO Lab - UC Irvine
 
 ![This is an image](https://cdn.freelogovectors.net/wp-content/uploads/2019/09/uci-logo.png)
 
+
 # Requirements
 
 - `Python` == 3.7 or 3.8
@@ -17,6 +18,34 @@ Library for EEG Biometrics project for HERO Lab - UC Irvine
 - `pandas` >=  1.4.1
 - `numpy` >= 1.22.0
 
+# Install tensorflow in Raspberry Pi
+
+- get a fresh start
+`$ sudo apt-get update`
+`$ sudo apt-get upgrade`
+- remove old versions, if not placed in a virtual environment (let pip search for them)
+`$ sudo pip uninstall tensorflow`
+`$ sudo pip3 uninstall tensorflow`
+- install the dependencies (if not already onboard)
+`$ sudo apt-get install gfortran`
+`$ sudo apt-get install libhdf5-dev libc-ares-dev libeigen3-dev`
+`$ sudo apt-get install libatlas-base-dev libopenblas-dev libblas-dev`
+`$ sudo apt-get install openmpi-bin libopenmpi-dev`
+`$ sudo apt-get install liblapack-dev cython`
+`$ sudo pip3 install keras_applications==1.0.8 --no-deps`
+`$ sudo pip3 install keras_preprocessing==1.1.0 --no-deps`
+`$ sudo pip3 install -U --user six wheel mock`
+`$ sudo -H pip3 install pybind11`
+`$ sudo -H pip3 install h5py==2.10.0`
+- upgrade setuptools 40.8.0 -> 52.0.0
+`$ sudo -H pip3 install --upgrade setuptools`
+- download the wheel
+`$ wget https://github.com/Qengineering/Tensorflow-Raspberry-Pi/raw/master/tensorflow-2.1.0-cp37-cp37m-linux_armv7l.whl`
+- install TensorFlow
+`$ sudo -H pip3 install tensorflow-2.1.0-cp37-cp37m-linux_armv7l.whl`
+- and complete the installation by rebooting
+`$ sudo reboot`
+
 # Packages
 
 ## prep
@@ -26,7 +55,7 @@ Python module that implements the PrePipeline algorithm by epoching a raw eeg si
 ## ppeeg
 
 Python module with some EEG preprocessing functions for biometrics applications
- 
+
 This module requires some libraries:
 - `pyprep` (Preprocessing Pipeline): Standardized preprocessing for large-scale EEG analysis. DOI: 10.3389/fninf.2015.00016
 - `MNE`: Open-source Python package for exploring, visualizing, and analyzing human neurophysiological data: MEG, EEG, sEEG, ECoG, NIRS, and more.
@@ -55,7 +84,7 @@ This module requires `keras` and `tensorflow`
 
 ## ClassifierEEG
 
-Python module that makes the classification for the EEG samples read from the ADS1299 
+Python module that makes the classification for the EEG samples read from the ADS1299
 
 ## utilsEEG
 

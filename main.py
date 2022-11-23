@@ -42,6 +42,8 @@ if PROCESS == "ADC-DAC":
     i2c = busio.I2C(board.SCL, board.SDA)
     dac = adafruit_mcp4725.MCP4725(i2c)
 
+    synchronizer_1 = threading.Event()      #Synchronizer for the ADC that makes it wait until DAC finish write
+    synchronizer_2 = threading.Event()      #Synchronizer for the DAC that makes it wait until ADC finish read
 
 
 buffer = []
@@ -71,11 +73,16 @@ def stream():
             time.sleep(1/sampling_rate)
 
     elif PROCESS == "ADC-DAC":
-        # create an analog input channel on pin 0
-        while dac_samples_generator == 1 :
-            chan = AnalogIn(mcp, MCP.P0)
-            print(str(chan.voltage))
-            buffer.append(chan.voltage)
+        synchronizer_2.set()
+        while dac_samples_generator == 1:
+            sample = []
+            for i in range(17):
+                synchronizer_1.wait()                            #Wait until DAC write out the data
+                read = iAnalogIn(mcp, MCP.P0)                    #Read and convert the data from ADC (10-bits) to the original (12-bits)
+                sample.append(read.voltage)                              #Add the data point to the current sample
+                synchronizer_1.clear()                           #Release the Event that enables the DAC to notify the ADC
+                synchronizer_2.set()                             #Notify the DAC that data was read
+            buffer.append(sample)                                 #Add all the points of one sample to the samples queue
 
 
 
@@ -87,11 +94,13 @@ def dac():
         test = pd.read_csv("./s1_s1.csv")
         test = test[header].iloc[0:(sampling_rate*test_duration)].values.tolist()
         dac_samples_generator = 1
-        
+
         for x in test:
             for y in x:
-                dac.raw_value = y
-                time.sleep(1/sampling_rate)
+                synchronizer_2.wait()                   #Wait until ADC finish the read of the last sample
+                dac.raw_value = y                       #Set the output the DAC to the new value
+                synchronizer_2.clear()                  #Release the Event that enables the ADC to notify the DAC
+                synchronizer_1.set()                    #Notify the ADC that data is ready to be read
         dac_samples_generator = 0
 
 

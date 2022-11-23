@@ -16,16 +16,16 @@ from sklearn.metrics import f1_score
 from sklearn.metrics import confusion_matrix
 from sklearn.preprocessing import StandardScaler
 
-import EEG_Biometrics.utilsEEG
-from EEG_Biometrics.utilsEEG import generate_results_csv
-from EEG_Biometrics.utilsEEG import create_directory
-from EEG_Biometrics.utilsEEG import read_dataset
-from EEG_Biometrics.utilsEEG import transform_mts_to_ucr_format
-from EEG_Biometrics.utilsEEG import visualize_filter
-from EEG_Biometrics.utilsEEG import viz_for_survey_paper
-from EEG_Biometrics.utilsEEG import calculate_metrics
-from EEG_Biometrics.utilsEEG import case_by_case_analysis
-from EEG_Biometrics.utilsEEG import viz_cam
+import utilsEEG
+from utilsEEG import generate_results_csv
+from utilsEEG import create_directory
+from utilsEEG import read_dataset
+from utilsEEG import transform_mts_to_ucr_format
+from utilsEEG import visualize_filter
+from utilsEEG import viz_for_survey_paper
+from utilsEEG import calculate_metrics
+from utilsEEG import case_by_case_analysis
+from utilsEEG import viz_cam
 
 class ClassifierEEG(object):
                

@@ -17,8 +17,8 @@ from ClassifierEEG import ClassifierEEG
 
 DEBUG = True
 
-#PROCESS = "TEST"
-PROCESS = "ADC-DAC"
+PROCESS = "TEST"
+#PROCESS = "ADC-DAC"
 
 if PROCESS == "ADC-DAC":
     import busio
@@ -70,6 +70,8 @@ def stream():
         test = test[header].iloc[0:(sampling_rate*test_duration)].values.tolist()
         for x in test:
             buffer.append(x)
+            print(len(buffer))
+            print(x)
             time.sleep(1/sampling_rate)
 
     elif PROCESS == "ADC-DAC":
@@ -82,6 +84,7 @@ def stream():
                 sample.append(read.voltage)                              #Add the data point to the current sample
                 synchronizer_1.clear()                           #Release the Event that enables the DAC to notify the ADC
                 synchronizer_2.set()                             #Notify the DAC that data was read
+
             buffer.append(sample)                                 #Add all the points of one sample to the samples queue        
 
 
@@ -120,7 +123,7 @@ def main():
             if DEBUG: print("\n\nIteration: {}\n\n".format(i))
             if DEBUG: print("Sample: {}\n".format(samples.shape))
 
-            x_test, y_pred = ClassifierEEG.fitted_classifier(EEG_cleaned, classifier_name, directory)
+            x_test, y_pred = ClassifierEEG.fitted_classifier(samples, classifier_name, directory)
             buffer_pred.append(y_pred)
 
             buffer_time.append(sample_start-time.localtime())
@@ -134,6 +137,7 @@ def main():
             print("\n\n\nEnding Time: {} \nTotal Time: {} sec ({} min)".format(current_time, d, d/60))
 
             buffer_time.append(sum(buffer_time)/len(buffer_time))
+            print("Prediction Frequency: {}".format(sum(buffer_time)/len(buffer_time)))
             with open('EEG-Time-Report.csv', 'w') as file:
                 for x in buffer_time:
                     file.write(x + '\n')

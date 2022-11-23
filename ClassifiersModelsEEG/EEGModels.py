@@ -31,9 +31,9 @@ from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.regularizers import l1_l2
 
 #Local application imports
-from EEG_Biometrics.utilsEEG import calculate_metrics
-from EEG_Biometrics.utilsEEG import save_logs
-from EEG_Biometrics.utilsEEG import save_test_duration
+from utilsEEG import calculate_metrics
+from utilsEEG import save_logs
+from utilsEEG import save_test_duration
 
 
 class Classifier_EEGNET:

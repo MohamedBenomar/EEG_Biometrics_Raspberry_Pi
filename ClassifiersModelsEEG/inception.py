@@ -15,9 +15,9 @@ import tensorflow as tf
 import tensorflow.keras as keras
 
 #Local application imports
-from EEG_Biometrics.utilsEEG import calculate_metrics
-from EEG_Biometrics.utilsEEG import save_logs
-from EEG_Biometrics.utilsEEG import save_test_duration
+from utilsEEG import calculate_metrics
+from utilsEEG import save_logs
+from utilsEEG import save_test_duration
 
 
 """

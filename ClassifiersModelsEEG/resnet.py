@@ -15,10 +15,10 @@ import matplotlib
 matplotlib.use('agg')
 import matplotlib.pyplot as plt
 
-from EEG_Biometrics.utilsEEG import save_logs
-from EEG_Biometrics.utilsEEG import calculate_metrics
-from EEG_Biometrics.utilsEEG import case_by_case_analysis
-from EEG_Biometrics.utilsEEG import save_test_duration
+from utilsEEG import save_logs
+from utilsEEG import calculate_metrics
+from utilsEEG import case_by_case_analysis
+from utilsEEG import save_test_duration
 
 class Classifier_RESNET:
 

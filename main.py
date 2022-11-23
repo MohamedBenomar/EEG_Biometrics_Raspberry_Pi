@@ -10,12 +10,12 @@ import numpy as np
 import pandas as pd
 
 
-#from ClassifiersModelsEEG import EEGModels, inception, resnet
-#from ClassifierEEG import ClassifierEEG
+from ClassifiersModelsEEG import EEGModels, inception, resnet
+from ClassifierEEG import ClassifierEEG
 
 
 
-DEBUG = False
+DEBUG = True
 
 #PROCESS = "TEST"
 PROCESS = "ADC-DAC"
@@ -54,7 +54,7 @@ buffer_time = []
 sampling_rate = 250
 sample_duration = 4  #1000 samples = 4 sec (1000/250)
 test_duration = 8
-dac_samples_generator = 0
+dac_samples_generator = 1
 
 classifier_name  = "eegnet"
 directory = './Classifiers_Trained_Models/' + classifier_name + '/'
@@ -62,7 +62,7 @@ directory = './Classifiers_Trained_Models/' + classifier_name + '/'
 
 
 def stream():
-    global PROCESS, mcp, buffer
+    global PROCESS, mcp, buffer, dac_samples_generator
 
     if PROCESS == "TEST":
         header = "F3 FC5 AF3 F7 T7 P7 O1 O2 P8 T8 F8 AF4 FC6 F4".split()
@@ -78,22 +78,20 @@ def stream():
             sample = []
             for i in range(17):
                 synchronizer_1.wait()                            #Wait until DAC write out the data
-                read = iAnalogIn(mcp, MCP.P0)                    #Read and convert the data from ADC (10-bits) to the original (12-bits)
+                read = AnalogIn(mcp, MCP.P0)                    #Read and convert the data from ADC (10-bits) to the original (12-bits)
                 sample.append(read.voltage)                              #Add the data point to the current sample
                 synchronizer_1.clear()                           #Release the Event that enables the DAC to notify the ADC
                 synchronizer_2.set()                             #Notify the DAC that data was read
-            buffer.append(sample)                                 #Add all the points of one sample to the samples queue
-
+            buffer.append(sample)                                 #Add all the points of one sample to the samples queue        
 
 
 def dac():
-    global PROCESS, dac
+    global PROCESS, dac, dac_samples_generator
 
     if PROCESS == "ADC-DAC":
         header = "F3 FC5 AF3 F7 T7 P7 O1 O2 P8 T8 F8 AF4 FC6 F4".split()
         test = pd.read_csv("./s1_s1.csv")
         test = test[header].iloc[0:(sampling_rate*test_duration)].values.tolist()
-        dac_samples_generator = 1
 
         for x in test:
             for y in x:

@@ -1,4 +1,4 @@
-# EEG Biometrics
+# EEG Biometrics for Raspberry Pi
 Library for EEG Biometrics project for HERO Lab - UC Irvine
 
 

@@ -1,5 +1,5 @@
 # EEG Biometrics
-Library for EEG Biometrics project for HERO Lab - UC Irvine
+!!Library for EEG Biometrics project for HERO Lab - UC Irvine
 
 
 # Requirements

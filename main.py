@@ -39,8 +39,8 @@ if PROCESS == "ADC-DAC":
 
     import adafruit_mcp4725
 
-    #i2c = busio.I2C(board.SCL, board.SDA)
-    #dac = adafruit_mcp4725.MCP4725(i2c)
+    i2c = busio.I2C(board.SCL, board.SDA)
+    dac = adafruit_mcp4725.MCP4725(i2c)
 
 
 
@@ -52,6 +52,7 @@ buffer_time = []
 sampling_rate = 250
 sample_duration = 4  #1000 samples = 4 sec (1000/250)
 test_duration = 8
+dac_samples_generator = 0
 
 classifier_name  = "eegnet"
 directory = './Classifiers_Trained_Models/' + classifier_name + '/'
@@ -63,7 +64,7 @@ def stream():
 
     if PROCESS == "TEST":
         header = "F3 FC5 AF3 F7 T7 P7 O1 O2 P8 T8 F8 AF4 FC6 F4".split()
-        test = pd.read_csv("/Users/MohamedBenomar/Desktop/ETSETB/MEE/2B/TFM/RasPi-Files/RAW_REC/s1_s1.csv")
+        test = pd.read_csv("./s1_s1.csv")
         test = test[header].iloc[0:(sampling_rate*test_duration)].values.tolist()
         for x in test:
             buffer.append(x)
@@ -71,8 +72,10 @@ def stream():
 
     elif PROCESS == "ADC-DAC":
         # create an analog input channel on pin 0
-        chan = AnalogIn(mcp, MCP.P0)
-        buffer.append(chan.voltage)
+        while dac_samples_generator == 1 :
+            chan = AnalogIn(mcp, MCP.P0)
+            print(str(chan.voltage))
+            buffer.append(chan.voltage)
 
 
 
@@ -83,10 +86,13 @@ def dac():
         header = "F3 FC5 AF3 F7 T7 P7 O1 O2 P8 T8 F8 AF4 FC6 F4".split()
         test = pd.read_csv("./s1_s1.csv")
         test = test[header].iloc[0:(sampling_rate*test_duration)].values.tolist()
+        dac_samples_generator = 1
+        
         for x in test:
             for y in x:
                 dac.raw_value = y
                 time.sleep(1/sampling_rate)
+        dac_samples_generator = 0
 
 
 def main():

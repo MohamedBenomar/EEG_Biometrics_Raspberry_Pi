@@ -10,8 +10,8 @@ import numpy as np
 import pandas as pd
 
 
-from EEG_Biometrics.ClassifiersModelsEEG import EEGModels, inception, resnet
-from EEG_Biometrics.ClassifierEEG import ClassifierEEG
+#from ClassifiersModelsEEG import EEGModels, inception, resnet
+#from ClassifierEEG import ClassifierEEG
 
 
 
@@ -39,8 +39,8 @@ if PROCESS == "ADC-DAC":
 
     import adafruit_mcp4725
 
-    i2c = busio.I2C(board.SCL, board.SDA)
-    dac = adafruit_mcp4725.MCP4725(i2c)
+    #i2c = busio.I2C(board.SCL, board.SDA)
+    #dac = adafruit_mcp4725.MCP4725(i2c)
 
 
 
@@ -53,8 +53,8 @@ sampling_rate = 250
 sample_duration = 4  #1000 samples = 4 sec (1000/250)
 test_duration = 8
 
-directory = './Classifiers_Trained_Models/' + classifier_name + '/'
 classifier_name  = "eegnet"
+directory = './Classifiers_Trained_Models/' + classifier_name + '/'
 
 
 

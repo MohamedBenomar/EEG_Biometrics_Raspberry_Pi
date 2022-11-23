@@ -61,10 +61,6 @@ pip install mne
 
 # Packages
 
-## prep
-
-Python module that implements the PrePipeline algorithm by epoching a raw eeg signals
-
 ## ppeeg
 
 Python module with some EEG preprocessing functions for biometrics applications
@@ -74,20 +70,22 @@ This module requires some libraries:
 - `MNE`: Open-source Python package for exploring, visualizing, and analyzing human neurophysiological data: MEG, EEG, sEEG, ECoG, NIRS, and more.
 - `Librosa`: Python package for music and audio analysis. It provides the building blocks necessary to create music information retrieval systems.
 
-## pyOpenBCI
+## Adafruit_CircuitPython_MCP3008
 
-Python module for interfacing with the OpenBCI devices.
 
-This module requires `Serial`
+CircuitPython library for the MCP3xxx series of analog-to-digital converters.
 
-## RaspberryPiADS1299
+```
+sudo pip3 install adafruit-circuitpython-mcp3xxx
+```
 
-Python module for interfacing with host device and the ADS1299 (Analog-to-Digital Converter for Biopotential Measurements)
+## Adafruit_CircuitPython_MCP4725
 
-This module requires some libraries:
-- `spidev`: Python module for interfacing with SPI devices from user space via the spidev linux kernel driver.
+CircuitPython module for the MCP4725 digital to analog converter.
 
-Ref: https://github.com/wjcroft/RaspberryPiADS1299
+```
+sudo pip3 install adafruit-circuitpython-mcp4725
+```
 
 ## ClassifiersModelsEEG
 
@@ -97,7 +95,7 @@ This module requires `keras` and `tensorflow`
 
 ## ClassifierEEG
 
-Python module that makes the classification for the EEG samples read from the ADS1299
+Python module that makes the classification for the EEG samples read from the MCP3008
 
 ## utilsEEG
 

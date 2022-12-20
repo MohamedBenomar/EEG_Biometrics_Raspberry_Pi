@@ -18,30 +18,6 @@ git clone git@github.com:MohamedBenomar/EEG_Biometrics_Raspberry_Pi.git
 ```
 
 
-# Requirements
-
-- `Python` == 3.7 or 3.8
-- `tensorflow` == 2.X (verified working with 2.0 - 2.3, both for CPU and GPU)
-- `keras` >= 2.8.0
-
-- `mne` >= 0.24.1
-- `librosa` >= 0.9.1
-- `sklearn` >= 1.0.2
-- `scikit-learn` >= 0.20.1
-- `pandas` >=  1.4.1
-- `numpy` >= 1.22.0
-
-```
-sudo -H pip3 install sklearn
-sudo -H pip3 install scikit-learn
-sudo -H pip3 install pandas
-sudo -H pip3 install numpy
-sudo -H pip3 install --upgrade adafruit-python-shell
-wget https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/raspi-blinka.py
-sudo python3 raspi-blinka.py
-```
-
-
 ## Install python 3.7 in Raspberry Pi
 
 Install pyenv
@@ -93,6 +69,30 @@ To uninstall (in case you followed along and changed your mind)
 rm -fr ~/.pyenv
 ```
 Remove lines from .bashrc (sudo nano ~/.bashrc)
+
+
+# Requirements
+
+- `Python` == 3.7 or 3.8
+- `tensorflow` == 2.X (verified working with 2.0 - 2.3, both for CPU and GPU)
+- `keras` >= 2.8.0
+
+- `mne` >= 0.24.1
+- `librosa` >= 0.9.1
+- `sklearn` >= 1.0.2
+- `scikit-learn` >= 0.20.1
+- `pandas` >=  1.4.1
+- `numpy` >= 1.22.0
+
+```
+pip install sklearn
+pip install scikit-learn
+pip install pandas
+pip install numpy
+pip install --upgrade adafruit-python-shell
+wget https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/raspi-blinka.py
+python raspi-blinka.py
+```
 
 
 ## Install tensorflow in Raspberry Pi

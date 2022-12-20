@@ -1,6 +1,22 @@
 # EEG Biometrics for Raspberry Pi
 Library for EEG Biometrics project for HERO Lab - UC Irvine
 
+# Git clone repository with SSH Key
+Generate key in Raspberry Pi
+```
+ssh-keygen -t ed25519 -C "mohamed_3151@hotmail.com"
+```
+
+Copy SHH Key and add it to Github Account
+```
+sudo nano ~/.ssh/id_ed25519.pub
+```
+
+Clone repository to Raspberry Pi
+```
+git clone git@github.com:MohamedBenomar/EEG_Biometrics_Raspberry_Pi.git
+```
+
 
 # Requirements
 

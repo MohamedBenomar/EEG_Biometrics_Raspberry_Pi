@@ -10,7 +10,7 @@ import numpy as np
 import time
 
 #Third party imports
-from keras.utils.vis_utils import plot_model
+#from keras.utils.vis_utils import plot_model
 import tensorflow as tf
 import tensorflow.keras as keras
 

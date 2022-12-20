@@ -70,8 +70,8 @@ def stream():
         test = test[header].iloc[0:(sampling_rate*test_duration)].values.tolist()
         for x in test:
             buffer.append(x)
-            print(len(buffer))
-            print(x)
+            #if DEBUG: print(len(buffer))
+            #if DEBUG: print(x)
             time.sleep(1/sampling_rate)
 
     elif PROCESS == "ADC-DAC":

@@ -6,7 +6,7 @@
 #IMPORTING ALL NEEDED MODULES
 import tensorflow as tf
 from tensorflow import keras
-from keras.utils.vis_utils import plot_model
+#from keras.utils.vis_utils import plot_model
 import numpy as np
 import time
 import datetime

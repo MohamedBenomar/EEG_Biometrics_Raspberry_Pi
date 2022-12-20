@@ -148,19 +148,9 @@ HDF5_VERSION=1.10.6 pip install --no-binary=h5py h5py==3.1.0
 pip install mne
 ```
 
-## Packages
-
-### ppeeg
-
-Python module with some EEG preprocessing functions for biometrics applications
-
-This module requires some libraries:
-- `pyprep` (Preprocessing Pipeline): Standardized preprocessing for large-scale EEG analysis. DOI: 10.3389/fninf.2015.00016
-- `MNE`: Open-source Python package for exploring, visualizing, and analyzing human neurophysiological data: MEG, EEG, sEEG, ECoG, NIRS, and more.
-- `Librosa`: Python package for music and audio analysis. It provides the building blocks necessary to create music information retrieval systems.
+## Install Adafruit Packages
 
 ### Adafruit_CircuitPython_MCP3008
-
 
 CircuitPython library for the MCP3xxx series of analog-to-digital converters.
 
@@ -175,6 +165,17 @@ CircuitPython module for the MCP4725 digital to analog converter.
 ```
 sudo pip3 install adafruit-circuitpython-mcp4725
 ```
+
+## Code Structure
+
+### ppeeg
+
+Python module with some EEG preprocessing functions for biometrics applications
+
+This module requires some libraries:
+- `pyprep` (Preprocessing Pipeline): Standardized preprocessing for large-scale EEG analysis. DOI: 10.3389/fninf.2015.00016
+- `MNE`: Open-source Python package for exploring, visualizing, and analyzing human neurophysiological data: MEG, EEG, sEEG, ECoG, NIRS, and more.
+- `Librosa`: Python package for music and audio analysis. It provides the building blocks necessary to create music information retrieval systems.
 
 ### ClassifiersModelsEEG
 

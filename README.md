@@ -1,28 +1,25 @@
+[![DOI:10.3390/s22239547](https://img.shields.io/badge/DOI-10.3390/s22239547-0064A4.svg)](https://doi.org/10.3390/s22239547)
+[![WEB:mbenomar.com](https://img.shields.io/badge/WEB-MOHAMED%20BENOMAR-FFD200.svg)](https://mbenomar.com)
+[![WEB:hero.eng.uci.edu](https://img.shields.io/badge/WEB-HERO%20Lab-48159A.svg)](https://hero.eng.uci.edu)
+
 # EEG Biometrics for Raspberry Pi
 Library for EEG Biometrics project for HERO Lab - UC Irvine
 
-
-# Requirements
-
-- `Python` == 3.7 or 3.8
-- `tensorflow` == 2.X (verified working with 2.0 - 2.3, both for CPU and GPU)
-- `keras` >= 2.8.0
-
-- `mne` >= 0.24.1
-- `librosa` >= 0.9.1
-- `sklearn` >= 1.0.2
-- `scikit-learn` >= 0.20.1
-- `pandas` >=  1.4.1
-- `numpy` >= 1.22.0
-
+## Git clone repository with SSH Key
+Generate key in Raspberry Pi
 ```
-sudo -H pip3 install sklearn
-sudo -H pip3 install scikit-learn
-sudo -H pip3 install pandas
-sudo -H pip3 install numpy
-sudo -H pip3 install --upgrade adafruit-python-shell
-wget https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/raspi-blinka.py
-sudo python3 raspi-blinka.py
+ssh-keygen -t ed25519 -C "mohamed_3151@hotmail.com"
+```
+
+Copy SHH Key and add it to Github Account
+```
+sudo nano ~/.ssh/id_ed25519.pub
+```
+
+Clone repository to Raspberry Pi
+```
+git clone git@github.com:MohamedBenomar/EEG_Biometrics_Raspberry_Pi.git
+cd EEG_Biometrics_Raspberry_Pi
 ```
 
 
@@ -79,19 +76,22 @@ rm -fr ~/.pyenv
 Remove lines from .bashrc (sudo nano ~/.bashrc)
 
 
+## Requirements
+
+```
+pip install sklearn
+pip install scikit-learn
+pip install pandas
+pip install numpy
+pip install --upgrade numpy
+pip install matplotlib
+pip install --upgrade adafruit-python-shell
+wget https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/raspi-blinka.py
+sudo python raspi-blinka.py
+```
+
+
 ## Install tensorflow in Raspberry Pi
-
-Change to project directory
-```
-cd EEG_Biometrics_Raspberry_Pi
-```
-
-Make a virtual environment:
-```
-python3 -m pip install virtualenv
-python3 -m virtualenv env
-source env/bin/activate
-```
 
 Run the commands from https://github.com/PINTO0309/Tensorflow-bin/#usage:
 ```
@@ -132,9 +132,27 @@ HDF5_VERSION=1.10.6 pip install --no-binary=h5py h5py==3.1.0
 pip install mne
 ```
 
-# Packages
+## Install Adafruit Packages
 
-## ppeeg
+### Adafruit_CircuitPython_MCP3008
+
+CircuitPython library for the MCP3xxx series of analog-to-digital converters.
+
+```
+sudo pip3 install adafruit-circuitpython-mcp3xxx
+```
+
+### Adafruit_CircuitPython_MCP4725
+
+CircuitPython module for the MCP4725 digital to analog converter.
+
+```
+sudo pip3 install adafruit-circuitpython-mcp4725
+```
+
+## Code Structure
+
+### ppeeg
 
 Python module with some EEG preprocessing functions for biometrics applications
 
@@ -143,37 +161,20 @@ This module requires some libraries:
 - `MNE`: Open-source Python package for exploring, visualizing, and analyzing human neurophysiological data: MEG, EEG, sEEG, ECoG, NIRS, and more.
 - `Librosa`: Python package for music and audio analysis. It provides the building blocks necessary to create music information retrieval systems.
 
-## Adafruit_CircuitPython_MCP3008
-
-
-CircuitPython library for the MCP3xxx series of analog-to-digital converters.
-
-```
-sudo pip3 install adafruit-circuitpython-mcp3xxx
-```
-
-## Adafruit_CircuitPython_MCP4725
-
-CircuitPython module for the MCP4725 digital to analog converter.
-
-```
-sudo pip3 install adafruit-circuitpython-mcp4725
-```
-
-## ClassifiersModelsEEG
+### ClassifiersModelsEEG
 
 Python module with different Deep Learning Classifiers models for EEG biometrics
 
 This module requires `keras` and `tensorflow`
 
-## ClassifierEEG
+### ClassifierEEG
 
 Python module that makes the classification for the EEG samples read from the MCP3008
 
-## utilsEEG
+### utilsEEG
 
 Python module with some usefull tools for the classification models
 
-# main
+### main
 
 Main script of the EEG Biometrics device. Use the OpenBCI headset to collect EEG signals from a subject and by the way of different tools and Deep Learning models, predict the person identity.

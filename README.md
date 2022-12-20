@@ -15,6 +15,7 @@ sudo nano ~/.ssh/id_ed25519.pub
 Clone repository to Raspberry Pi
 ```
 git clone git@github.com:MohamedBenomar/EEG_Biometrics_Raspberry_Pi.git
+cd EEG_Biometrics_Raspberry_Pi
 ```
 
 

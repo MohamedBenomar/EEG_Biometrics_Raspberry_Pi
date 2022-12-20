@@ -68,7 +68,7 @@ pyenv install --list
 pyenv install 3.7.12
 ```
 
-Set python verion
+Set python verion:
 `pyenv local 3.7.12` or `pyenv shell 3.7.12` or `pyenv global 3.7.12`
 
 To uninstall (in case you followed along and changed your mind)

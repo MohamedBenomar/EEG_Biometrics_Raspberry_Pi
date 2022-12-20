@@ -78,24 +78,13 @@ Remove lines from .bashrc (sudo nano ~/.bashrc)
 
 ## Requirements
 
-- `Python` == 3.7 or 3.8
-- `tensorflow` == 2.X (verified working with 2.0 - 2.3, both for CPU and GPU)
-- `keras` >= 2.8.0
-
-- `mne` >= 0.24.1
-- `librosa` >= 0.9.1
-- `sklearn` >= 1.0.2
-- `scikit-learn` >= 0.20.1
-- `pandas` >=  1.4.1
-- `numpy` >= 1.22.0
-
 ```
 pip install sklearn
 pip install scikit-learn
 pip install pandas
 pip install numpy
 pip install --upgrade numpy
-pip install keras
+pip install keras==2.6.*
 pip install --upgrade adafruit-python-shell
 wget https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/raspi-blinka.py
 sudo python raspi-blinka.py

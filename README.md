@@ -103,13 +103,6 @@ sudo python raspi-blinka.py
 
 ## Install tensorflow in Raspberry Pi
 
-Make a virtual environment:
-```
-python3 -m pip install virtualenv
-python3 -m virtualenv env
-source env/bin/activate
-```
-
 Run the commands from https://github.com/PINTO0309/Tensorflow-bin/#usage:
 ```
 sudo apt-get install -y libhdf5-dev libc-ares-dev libeigen3-dev gcc gfortran libgfortran5 libatlas3-base libatlas-base-dev libopenblas-dev libopenblas-base libblas-dev liblapack-dev cython3 libatlas-base-dev openmpi-bin libopenmpi-dev python3-dev

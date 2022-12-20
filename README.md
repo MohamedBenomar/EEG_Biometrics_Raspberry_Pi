@@ -122,7 +122,7 @@ source env/bin/activate
 Uninstall hdf5 and reinstall it
 ```
 pip uninstall h5py
-HDF5_VERSION=1.10.6 pip install --no-binary=h5py h5py==3.1.0
+HDF5_VERSION=1.10.4 pip install --no-binary=h5py h5py==3.1.0
 ```
 
 

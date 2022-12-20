@@ -31,6 +31,7 @@ Install pyenv
 ```
 curl https://pyenv.run | bash
 ```
+
 Add pyenv to bash
 ```
 sudo nano ~/.bashrc
@@ -40,13 +41,97 @@ export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init --path)"
 eval "$(pyenv virtualenv-init -)"
 ```
-Restart SHELL
+
+Restart the terminal
 ```
 exec $SHELL
 ```
+
 Install dependencies
 ```
 sudo apt-get install --yes libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libgdbm-dev lzma lzma-dev tcl-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev wget curl make build-essential openssl
+```
+
+Restart the terminal
+```
+exec $SHELL
+```
+
+Update pyenv
+```
+pyenv update
+```
+
+Install python versions
+```
+pyenv install --list
+pyenv install 3.7.12
+```
+
+Set python verion
+```
+pyenv local 3.7.12
+```
+or
+```
+pyenv shell 3.7.12
+```
+or
+```
+pyenv global 3.7.12
+```
+
+To uninstall (in case you followed along and changed your mind)
+```
+rm -fr ~/.pyenv
+```
+Remove lines from .bashrc (sudo nano ~/.bashrc)
+
+
+## Install tensorflow in Raspberry Pi
+
+Change to project directory
+```
+cd EEG_Biometrics_Raspberry_Pi
+```
+
+Make a virtual environment:
+```
+python3 -m pip install virtualenv
+python3 -m virtualenv env
+source env/bin/activate
+```
+
+Run the commands from https://github.com/PINTO0309/Tensorflow-bin/#usage:
+```
+sudo apt-get install -y libhdf5-dev libc-ares-dev libeigen3-dev gcc gfortran libgfortran5 libatlas3-base libatlas-base-dev libopenblas-dev libopenblas-base libblas-dev liblapack-dev cython3 libatlas-base-dev openmpi-bin libopenmpi-dev python3-dev
+pip install -U wheel mock six
+```
+
+Select the .whl from https://github.com/PINTO0309/Tensorflow-bin/tree/main/previous_versions
+```
+wget https://raw.githubusercontent.com/PINTO0309/Tensorflow-bin/main/previous_versions/download_tensorflow-2.5.0rc0-cp37-none-linux_armv7l.sh
+sudo chmod +x download_tensorflow-2.5.0rc0-cp37-none-linux_armv7l.sh
+./download_tensorflow-2.5.0rc0-cp37-none-linux_armv7l.sh
+sudo pip uninstall tensorflow
+pip uninstall tensorflow
+pip install tensorflow-2.5.0rc0-cp37-none-linux_armv7l.whl
+```
+
+Restart the terminal
+```
+exec $SHELL
+```
+
+Reactivate virtual environment
+```
+source env/bin/activate
+```
+
+Uninstall hdf5 and reinstall it
+```
+pip uninstall h5py
+HDF5_VERSION=1.10.6 pip install --no-binary=h5py h5py==3.1.0
 ```
 
 

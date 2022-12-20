@@ -76,7 +76,7 @@ rm -fr ~/.pyenv
 Remove lines from .bashrc (sudo nano ~/.bashrc)
 
 
-# Requirements
+## Requirements
 
 - `Python` == 3.7 or 3.8
 - `tensorflow` == 2.X (verified working with 2.0 - 2.3, both for CPU and GPU)
@@ -148,9 +148,9 @@ HDF5_VERSION=1.10.6 pip install --no-binary=h5py h5py==3.1.0
 pip install mne
 ```
 
-# Packages
+## Packages
 
-## ppeeg
+### ppeeg
 
 Python module with some EEG preprocessing functions for biometrics applications
 
@@ -159,7 +159,7 @@ This module requires some libraries:
 - `MNE`: Open-source Python package for exploring, visualizing, and analyzing human neurophysiological data: MEG, EEG, sEEG, ECoG, NIRS, and more.
 - `Librosa`: Python package for music and audio analysis. It provides the building blocks necessary to create music information retrieval systems.
 
-## Adafruit_CircuitPython_MCP3008
+### Adafruit_CircuitPython_MCP3008
 
 
 CircuitPython library for the MCP3xxx series of analog-to-digital converters.
@@ -168,7 +168,7 @@ CircuitPython library for the MCP3xxx series of analog-to-digital converters.
 sudo pip3 install adafruit-circuitpython-mcp3xxx
 ```
 
-## Adafruit_CircuitPython_MCP4725
+### Adafruit_CircuitPython_MCP4725
 
 CircuitPython module for the MCP4725 digital to analog converter.
 
@@ -176,20 +176,20 @@ CircuitPython module for the MCP4725 digital to analog converter.
 sudo pip3 install adafruit-circuitpython-mcp4725
 ```
 
-## ClassifiersModelsEEG
+### ClassifiersModelsEEG
 
 Python module with different Deep Learning Classifiers models for EEG biometrics
 
 This module requires `keras` and `tensorflow`
 
-## ClassifierEEG
+### ClassifierEEG
 
 Python module that makes the classification for the EEG samples read from the MCP3008
 
-## utilsEEG
+### utilsEEG
 
 Python module with some usefull tools for the classification models
 
-# main
+### main
 
 Main script of the EEG Biometrics device. Use the OpenBCI headset to collect EEG signals from a subject and by the way of different tools and Deep Learning models, predict the person identity.

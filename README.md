@@ -97,11 +97,6 @@ Remove lines from .bashrc (sudo nano ~/.bashrc)
 
 ## Install tensorflow in Raspberry Pi
 
-Change to project directory
-```
-cd EEG_Biometrics_Raspberry_Pi
-```
-
 Make a virtual environment:
 ```
 python3 -m pip install virtualenv

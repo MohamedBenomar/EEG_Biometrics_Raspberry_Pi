@@ -94,6 +94,7 @@ pip install sklearn
 pip install scikit-learn
 pip install pandas
 pip install numpy
+pip install --upgrade numpy
 pip install keras
 pip install --upgrade adafruit-python-shell
 wget https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/raspi-blinka.py

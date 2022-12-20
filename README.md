@@ -1,3 +1,5 @@
+[![DOI:10.3390/s22239547](https://img.shields.io/badge/DOI-10.3390/s22239547-B31B1B.svg)](https://doi.org/10.3390/s22239547)
+
 # EEG Biometrics for Raspberry Pi
 Library for EEG Biometrics project for HERO Lab - UC Irvine
 

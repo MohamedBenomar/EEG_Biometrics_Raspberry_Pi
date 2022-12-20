@@ -25,6 +25,7 @@ wget https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/m
 sudo python3 raspi-blinka.py
 ```
 
+
 ## Install python 3.7 in Raspberry Pi
 
 Install pyenv

@@ -1,5 +1,5 @@
 [![DOI:10.3390/s22239547](https://img.shields.io/badge/DOI-10.3390/s22239547-0064A4.svg)](https://doi.org/10.3390/s22239547)
-[![WEB:mbenomar.com](https://img.shields.io/badge/WEB-mbenomar.com-FFD200.svg)](https://mbenomar.com)
+[![WEB:mbenomar.com](https://img.shields.io/badge/WEB-MOHAMED%20BENOMAR-FFD200.svg)](https://mbenomar.com)
 [![WEB:hero.eng.uci.edu](https://img.shields.io/badge/WEB-HERO%20Lab-48159A.svg)](https://hero.eng.uci.edu)
 
 # EEG Biometrics for Raspberry Pi

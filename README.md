@@ -1,6 +1,6 @@
 [![DOI:10.3390/s22239547](https://img.shields.io/badge/DOI-10.3390/s22239547-0064A4.svg)](https://doi.org/10.3390/s22239547)
 [![WEB:mbenomar.com](https://img.shields.io/badge/WEB-mbenomar.com-FFD200.svg)](https://mbenomar.com)
-[![WEB:hero.eng.uci.edu](https://img.shields.io/badge/WEB-hero.eng.uci.edu-48159A.svg)](https://hero.eng.uci.edu)
+[![WEB:Hero Lab](https://img.shields.io/badge/WEB-hero.eng.uci.edu-48159A.svg)](https://hero.eng.uci.edu)
 
 # EEG Biometrics for Raspberry Pi
 Library for EEG Biometrics project for HERO Lab - UC Irvine

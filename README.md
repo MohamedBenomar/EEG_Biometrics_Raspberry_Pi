@@ -8,7 +8,7 @@ Library for EEG Biometrics project for HERO Lab - UC Irvine
 ## Git clone repository with SSH Key
 Generate key in Raspberry Pi
 ```
-ssh-keygen -t ed25519 -C "mohamed_3151@hotmail.com"
+ssh-keygen -t ed25519 -C "email@email.com"
 ```
 
 Copy SHH Key and add it to Github Account
